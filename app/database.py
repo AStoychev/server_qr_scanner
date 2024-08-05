@@ -17,5 +17,4 @@ class MongoDB:
     def get_collection(self, collection_name: str) -> Collection:
         return self.db[collection_name]
 
-# Initialize the database connection
 db = MongoDB(MONGO_DETAILS, DATABASE_NAME)

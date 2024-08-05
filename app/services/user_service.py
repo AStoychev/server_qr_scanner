@@ -3,7 +3,7 @@ from pymongo.collection import Collection
 from fastapi import HTTPException, status
 from bson import ObjectId
 from models.user import User
-from schemas.user import UserCreate, UserUpdate
+from schemas.user import UserCreate
 
 class UserService:
     def __init__(self, users_collection: Collection):
@@ -29,8 +29,6 @@ class UserService:
 
     async def get_user(self, user_id: str) -> Optional[User]:
         user_data = await self.users_collection.find_one({"_id": ObjectId(user_id)})
-        # user_data = await self.users_collection.find_one({"_id": user_id})
-        # print('USER: ', user_data)
         if not user_data:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found!")
         return User(**user_data)

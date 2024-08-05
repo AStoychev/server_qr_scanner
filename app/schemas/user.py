@@ -6,7 +6,6 @@ class UserCreate(BaseModel):
     id: Optional[str]
     code: str
     credentials: str
-    
 
 
 class UserResponse(BaseModel):

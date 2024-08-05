@@ -1,6 +1,4 @@
 from pymongo.collection import Collection
-from fastapi import HTTPException, status
-from bson import ObjectId
 
 from models.admin_user import AdminUser
 from schemas.admin_user import AdminUserCreate
