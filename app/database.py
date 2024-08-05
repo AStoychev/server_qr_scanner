@@ -1,22 +1,21 @@
 import os
-import motor.motor_asyncio
 from dotenv import load_dotenv
+
+import motor.motor_asyncio
+from pymongo.collection import Collection
 
 load_dotenv()
 
 MONGO_DETAILS = os.getenv("MONGODB_URI")
 DATABASE_NAME = os.getenv("DATABASE_NAME")
 
-client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
+class MongoDB:
+    def __init__(self, uri: str, db_name: str):
+        self.client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+        self.db = self.client[db_name]
 
-database = client[DATABASE_NAME]
-users_collection = database["users"]
-admin_users_collections = database["admin_users"]
+    def get_collection(self, collection_name: str) -> Collection:
+        return self.db[collection_name]
 
-
-def get_user_collections():
-    return users_collection
-
-
-def get_admin_user_collection():
-    return admin_users_collections
+# Initialize the database connection
+db = MongoDB(MONGO_DETAILS, DATABASE_NAME)
