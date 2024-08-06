@@ -6,13 +6,13 @@ class UserCreate(BaseModel):
     id: Optional[str]
     code: str
     credentials: str
+    registration_date: str
 
 
 class UserResponse(BaseModel):
     id: Optional[str]
     code: str
     credentials: str
-    # registration_date: str
     count_visited_places: int
     visited_places: List[str]
 

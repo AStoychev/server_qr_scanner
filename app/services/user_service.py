@@ -15,10 +15,11 @@ class UserService:
         if existing_user:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="User already exists")
 
-        # Create a new user
+        # Create a new user]
         new_user = User(
             code=user_data.code,
             credentials=user_data.credentials,
+            registtration_date=user_data.registration_date
         )
 
         # Insert the user into the database
