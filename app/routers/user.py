@@ -1,5 +1,3 @@
-# routers/user.py
-
 from fastapi import APIRouter, HTTPException, status, Depends
 from typing import List
 
