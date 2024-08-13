@@ -1,7 +1,7 @@
 from pymongo.collection import Collection
 
-from models.admin_user import AdminUser
-from schemas.admin_user import AdminUserCreate
+from app.models.admin_user import AdminUser
+from app.schemas.admin_user import AdminUserCreate
 
 
 class AdminUserService:
@@ -25,7 +25,7 @@ class AdminUserService:
 
 
 # Dependency Injection: Instantiate AdminUserService with admin_users_collection
-from database import db
+from app.database import db
 
 admin_user_service = AdminUserService(
     admin_users_collection=db.get_collection("admin_users")

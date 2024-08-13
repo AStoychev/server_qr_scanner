@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from schemas.admin_user import AdminUserCreate, AdminUserResponse
-from services.admin_user_service import admin_user_service
+from app.schemas.admin_user import AdminUserCreate, AdminUserResponse
+from app.services.admin_user_service import admin_user_service
 
 router = APIRouter()
 

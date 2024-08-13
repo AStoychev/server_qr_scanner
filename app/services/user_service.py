@@ -2,8 +2,8 @@ from typing import List, Optional
 from pymongo.collection import Collection
 from fastapi import HTTPException, status
 from bson import ObjectId
-from models.user import User
-from schemas.user import UserCreate
+from app.models.user import User
+from app.schemas.user import UserCreate
 
 
 class UserService:
@@ -64,6 +64,6 @@ class UserService:
 
 
 # Dependency Injection: Instantiate UserService with users_collection
-from database import db
+from app.database import db
 
 user_service = UserService(users_collection=db.get_collection("users"))
